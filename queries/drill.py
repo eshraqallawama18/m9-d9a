@@ -5,12 +5,20 @@ fixture into an `rdflib.Graph` and runs your query against it.
 """
 
 
+from rdflib  import Graph
+
 def q1():
     """Q1 — Return all (book, title) pairs.
 
     Result: 5 rows. Variables in the SELECT: ?book ?title (in that order).
     """
-    return ""
+    
+    return """
+    SELECT ?book ?title
+    WHERE {
+        ?book rdfs:label ?title .
+    }
+"""
 
 
 def q2():
@@ -50,3 +58,15 @@ def q5():
     two distinct author bindings.
     """
     return ""
+
+
+
+if __name__ == "__main__":
+    g = Graph()
+    g.parse("fixtures/mini_kg.ttl", format="ttl")
+    results = g.query(q1())
+    for row in results:
+        print(row)  
+        
+        
+    
