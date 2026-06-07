@@ -18,6 +18,7 @@ def q1():
     WHERE {
         ?book rdfs:label ?title .
     }
+    LIMIT 5
 """
 
 
@@ -68,5 +69,5 @@ if __name__ == "__main__":
     for row in results:
         print(row)  
         
-        
+
     
