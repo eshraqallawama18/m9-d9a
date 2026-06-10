@@ -23,13 +23,19 @@ def q1():
 
 
 def q2():
-    """Q2 — Return all books and their year, filtered to books published
+    """Q2 — Return all books and their year , filtered to books published
     after 2010.
 
     Result: 1 row. Variables in the SELECT: ?book ?year.
     Use FILTER (?year > 2010) — strict, not >=.
     """
-    return ""
+    return """
+    SELECT ?book ?year
+    WHERE (
+        ?book :publication_year ?year .
+    )
+"""
+
 
 
 def q3():
